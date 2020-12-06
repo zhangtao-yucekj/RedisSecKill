@@ -47,3 +47,20 @@ CREATE TABLE `seckill_order`  (
 INSERT INTO `seckill_order` VALUES (1, 1100.00, 15173117830, '2019-12-22 22:00:40', -1);
 
 SET FOREIGN_KEY_CHECKS = 1;
+
+
+create table `product` (
+	`id` int(20) NOT NULL AUTO_INCREMENT COMMENT '商品ID',
+	`name` varchar(255) DEFAULT NULL COMMENT '商品标题',
+	`price` decimal(10, 2) NULL DEFAULT NULL COMMENT '商品原价格',
+	`stock` int(20) NULL DEFAULT NULL COMMENT '剩余库存数量',
+	`pic` varchar(1000) DEFAULT NULL COMMENT '商品图片',
+	PRIMARY KEY (`id`) USING BTREE
+)ENGINE = InnoDB;
+
+create table `seckillorder` (
+	`id` int(20) NOT NULL AUTO_INCREMENT COMMENT '订单ID',
+	`productId` varchar(255) DEFAULT NULL COMMENT '商品id',
+	`amount` decimal(10, 2) DEFAULT NULL COMMENT '商品总价格',
+	PRIMARY KEY (`id`) USING BTREE
+)ENGINE = InnoDB DEFAULT CHARSET=utf8;
