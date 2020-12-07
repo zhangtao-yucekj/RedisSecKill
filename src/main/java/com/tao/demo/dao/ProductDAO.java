@@ -1,6 +1,9 @@
 package com.tao.demo.dao;
 
-import org.springframework.stereotype.Repository;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.tao.demo.entity.Product;
+import org.apache.ibatis.annotations.Mapper;
 
-public interface ProductDAO {
+@Mapper
+public interface ProductDAO extends BaseMapper<Product> {
 }
