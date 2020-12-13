@@ -20,7 +20,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> listProducts() {
-        return Collections.emptyList();
+        QueryWrapper<Product> queryWrapper = new QueryWrapper<>();
+        List<Product> products = productDAO.selectList(queryWrapper);
+        return products;
     }
 
     @Override

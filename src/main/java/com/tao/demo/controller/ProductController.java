@@ -5,7 +5,6 @@ import com.tao.demo.entity.Product;
 import com.tao.demo.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,13 +24,15 @@ public class ProductController {
     }
 
     @PostMapping("/delProductById")
-    public void delProductById(Integer id) {
+    public ReturnMessage delProductById(Integer id) {
         productService.deleteProduct(id);
+        return ReturnMessage.success();
     }
 
     @PostMapping("/findAllProduct")
-    public void findAllProduct() {
+    public ReturnMessage findAllProduct() {
         productService.listProducts();
+        return ReturnMessage.success();
     }
 
 }
